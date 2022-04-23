@@ -1,0 +1,47 @@
+/* ************************
+   04.8: Feature Artist
+   ********************* */
+
+.featured-artists {
+  background-color: #142442;
+  border-radius: 20px;
+  margin-bottom: 30px;
+  overflow: hidden;
+
+  .artists-content {
+    padding: 0 25px 25px;
+    margin-top: -28px;
+    h5 {
+      margin-bottom: 20px;
+      @extend %medium;
+    }
+  }
+  .user-avatar {
+    margin-bottom: 20px;
+    border: 3px solid var(--white);
+    background-color: var(--white);
+    @extend %radius;
+  }
+
+  &.style {
+    &--two {
+      background-color: var(--white);
+      box-shadow: 0 0 15px rgba(#000, 0.05);
+      @extend %trans3;
+      &:hover {
+        box-shadow: 0 0 25px rgba(#000000, 0.1);
+      }
+
+      .btn-follow.followed {
+        background-color: #efefef;
+        color: #585c75;
+      }
+    }
+  }
+}
+
+.spinner-border {
+  width: 12px;
+  height: 12px;
+  border-width: 2px !important;
+}

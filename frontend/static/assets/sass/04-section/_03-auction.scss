@@ -1,0 +1,35 @@
+/* ************************
+   04.3: Auction
+   ********************* */
+
+    .section-shape {
+        position: relative;
+        z-index: 1;
+        &:after {
+            width: 95%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            position: absolute;
+            z-index: -1;
+            background-color: #142442;
+            content: "";
+            @include tab {
+                width: 100%;
+            }
+        }
+        &-right {
+            &:after {
+                left: auto;
+                right: 0;
+            }
+        }
+    }
+
+    .light-ui {
+        .section-shape {
+            &:after {
+                background-color: var(--white);
+            }
+        }
+    }

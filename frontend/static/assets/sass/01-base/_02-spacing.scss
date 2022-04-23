@@ -1,0 +1,84 @@
+/* ************************
+   01.2: Padding/Margin
+   ********************* */
+// Paddings
+$p-list: 120, 90, 80, 70, 60, 50, 40;
+$tab: 60;
+
+// Padding Top
+@each $padding in $p-list {
+  .pt-#{$padding} {
+    padding-top: $padding + px;
+    @include tab {
+      @if $padding > $tab {
+        padding-top: ($padding - $tab) + px;
+      }
+    }
+  }
+}
+
+// Padding Bottom
+@each $padding in $p-list {
+  .pb-#{$padding} {
+    padding-bottom: $padding + px;
+    @include tab {
+      @if $padding > $tab {
+        padding-bottom: ($padding - $tab) + px;
+      }
+    }
+  }
+}
+
+$m-list: 80, 60, 50, 40, 30, 10;
+
+// Margin Top
+@each $margin in $m-list {
+  .mt-#{$margin} {
+    margin-top: $margin + px;
+  }
+}
+// Margin Bottom
+@each $margin in $m-list {
+  .mb-#{$margin} {
+    margin-bottom: $margin + px;
+  }
+}
+
+// Custom Class
+.mr-10 {
+  margin-right: 10px !important;
+}
+.mr-20 {
+  margin-right: 20px !important;
+}
+.ml-10 {
+  margin-left: 10px !important;
+}
+.mt-lg-120 {
+  @include customMin(992) {
+    margin-top: 120px;
+  }
+}
+.pt-45 {
+  padding-top: 45px;
+}
+
+//Negative Margin
+.mt-n1 {
+  margin-top: -4px !important;
+}
+.mt-n2 {
+  margin-top: -8px !important;
+}
+.mt-n3 {
+  margin-top: -16px !important;
+}
+.mb-n1 {
+  margin-bottom: -4px !important;
+}
+.mb-n2 {
+  margin-bottom: -8px !important;
+}
+.ml-n2 {
+  margin-left: -8px !important;
+}

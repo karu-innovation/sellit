@@ -1,0 +1,53 @@
+/* ************************
+   02.9: Pagination
+   ********************* */
+
+   .pagination {
+      ul {
+         margin: 0;
+      }
+      li {
+         &:not(:last-child) {
+            margin-right: 18px;
+            @include mobileSm {
+               margin-right: 10px;
+            }
+         }
+         a,
+         span {
+            width: 56px;
+            height: 56px;
+            line-height: 1;
+            position: relative;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            @extend %title-color-bg;
+            font-size: 18px;
+            @extend %title-font;
+            @extend %medium;
+            @extend %white;
+            @include mobileSm {
+               width: 48px;
+               height: 48px;
+            }
+
+            &.current {
+               @extend %c1-bg;
+            }
+            svg path {
+                  @extend %trans3;
+            }
+            &:hover,
+            &.active {
+               @extend %c1-bg;
+            }
+         }
+         &.nav-btn {
+            a.disabled {
+               cursor: not-allowed;
+               opacity: .5;
+            }
+         }
+      }
+   }

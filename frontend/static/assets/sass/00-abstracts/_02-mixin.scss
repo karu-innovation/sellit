@@ -1,0 +1,138 @@
+// Color
+@mixin colors($color, $class) {
+    .#{$class} {
+        color: $color;
+    }
+    .#{$class}-bg {
+        background-color: $color;
+    }
+    .#{$class}-bo {
+        border-color: $color !important;
+    }
+}
+
+// Gradients
+@mixin vertical-gradient($from, $to) {
+    background: $from;
+    background: -moz-linear-gradient(top, $from 0%, $to 100%);
+    background: -webkit-linear-gradient(top, $from 0%,$to 100%);
+    background: linear-gradient(to bottom, $from 0%,$to 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$from}', endColorstr='#{$to}',GradientType=0);
+}
+
+@mixin horizontal-gradient($from, $to) {
+    background: $from;
+    background: -moz-linear-gradient(left, $from 0%, $to 100%);
+    background: -webkit-linear-gradient(left, $from 0%,$to 100%);
+    background: linear-gradient(to right, $from 0%,$to 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$from}', endColorstr='#{$to}',GradientType=1);
+}
+    
+@mixin angle-gradient($angle, $from, $to) {
+    background: -moz-linear-gradient(#{$angle}deg, $from 0%, $to 100%);
+    background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, $from), color-stop(100%, $to));
+    background: -webkit-linear-gradient(#{$angle}deg, $from 0%, $to 100%);
+    background: -o-linear-gradient(#{$angle}deg, $from 0%, $to 100%);
+    background: -ms-linear-gradient(#{$angle}deg, $from 0%, $to 100%);
+    background: linear-gradient(#{$angle}deg, $from 0%, $to 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$from}', endColorstr='#{$to}',GradientType=1);
+}
+    
+// Transition
+@mixin transition($value, $transition-name) {
+    -webkit-transition: $value $transition-name; 
+    transition: $value $transition-name;
+}  
+    
+// FontAwesome Icon 
+@mixin fa($icon) {
+    font-family: 'FontAwesome';
+    content: $icon;
+}
+    
+// Media Queries
+// Extra Small Devices (less than 380px)
+@mixin mobileXs() {
+    @media only screen and (max-width: 379px) {
+        @content;
+    }   
+}
+    
+// Small Devices (less than 480px) 
+@mixin mobileSm()  {
+    @media only screen and (max-width: 479px) {
+        @content;
+    }
+}
+      
+// Medium Devices (less than 576px)
+@mixin mobileMd() {
+    @media only screen and (max-width: 575px) {
+        @content;
+    }
+}
+      
+// Medium Devices (less than 768px)
+@mixin mobileLg() {
+    @media only screen and (max-width: 767px) {
+        @content;
+    }  
+}
+    
+// Medium Devices (less than 1025px)
+// @mixin tab() {
+//     @media only screen and (max-width:1024px) {
+//         @content;
+//     }
+// }
+    
+// Medium Devices (less than 991px)
+@mixin tab() {
+    @media only screen and (max-width:991px) {
+        @content;
+    }
+}
+    
+// Large Devices (less than 1400px)
+@mixin medium() {
+    @media only screen and (max-width: 1199px) {
+        @content; 
+    }
+}
+     
+// Extra Large Devices (More than 1400px)
+@mixin large() {
+    @media only screen and (min-width: 1400px) {
+        @content; 
+    }
+}
+
+// Custom Min Width
+@mixin customMin($min-width) {
+    @media only screen and (min-width: #{$min-width}px) {
+        @content;
+    }
+}
+
+// Custom Max Width
+@mixin customMax($max-width) {
+    @media only screen and (max-width: #{$max-width}px) {
+        @content;
+    }
+}
+
+// Custom Devices
+@mixin customMq($min-width, $max-width) {
+    @media only screen and (min-width: #{$min-width}px) and (max-width: #{$max-width}px) {
+        @content; 
+    }
+}
+
+// IE
+@mixin IE {
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+        @content;
+    }
+}
+
+

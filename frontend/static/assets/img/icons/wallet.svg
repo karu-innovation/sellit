@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="13" height="13" viewBox="0 0 13 13">
+  <defs>
+    <linearGradient id="linear-gradient" y1="0.5" x2="1" y2="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#6a16f9"/>
+      <stop offset="1" stop-color="#ff0076"/>
+    </linearGradient>
+  </defs>
+  <path id="wallet" d="M1.368,13A1.408,1.408,0,0,1,0,11.556V1.444A1.408,1.408,0,0,1,1.368,0h9.579a1.412,1.412,0,0,1,1.368,1.444V3.091A1.458,1.458,0,0,1,13,4.334V8.666a1.458,1.458,0,0,1-.684,1.242v1.647A1.412,1.412,0,0,1,10.948,13Zm0-1.444h9.579V10.111H6.842A1.412,1.412,0,0,1,5.474,8.666V4.334A1.412,1.412,0,0,1,6.842,2.889h4.105V1.444H1.368ZM6.842,8.666h4.79V4.334H6.842ZM7.869,6.5A1.028,1.028,0,1,1,8.894,7.584,1.056,1.056,0,0,1,7.869,6.5Z" fill="url(#linear-gradient)"/>
+</svg>

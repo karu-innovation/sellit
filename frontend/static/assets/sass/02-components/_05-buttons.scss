@@ -1,0 +1,147 @@
+/* ************************
+   02.5: Buttons
+   ********************* */
+
+.btn {
+  font-size: 14px;
+  position: relative;
+  z-index: 1;
+  text-transform: uppercase;
+  color: var(--white);
+  @extend %medium;
+  @extend %trans3;
+  font-family: var(--title-font);
+  @extend %radius-50;
+  line-height: 1;
+  padding: 15px 29px;
+  @extend %shadow-none;
+  outline: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  @extend %btn-bg;
+  border: none;
+  background-size: 200% 100%;
+  > svg,
+  > i,
+  > img {
+    margin-right: 7px;
+  }
+  &:focus {
+    @extend %shadow-none;
+  }
+  &:hover {
+    color: var(--white);
+    background-position: 100% 0;
+  }
+
+  &-link {
+    padding: 0;
+    background: transparent;
+    text-decoration: none;
+    svg {
+      path {
+        @extend %trans3;
+      }
+    }
+    &:hover {
+      color: var(--c1);
+      text-decoration: underline;
+      svg {
+        path {
+          fill: var(--c1);
+        }
+      }
+    }
+    &-dark {
+      color: var(--title-color);
+      svg {
+        path {
+          fill: var(--title-color);
+        }
+      }
+    }
+  }
+  &-border {
+    background: transparent;
+    border: 1px solid var(--white);
+    padding: 14px 29px;
+    &:after {
+      width: 0%;
+      height: 100%;
+      border-radius: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 0;
+      position: absolute;
+      z-index: -1;
+      content: "";
+      @extend %gradient-reverse;
+      @extend %trans3;
+      opacity: 0;
+    }
+    &.style-c1 {
+      background-color: #142442;
+      border-color: var(--c1);
+      color: var(--c1);
+      &:hover {
+        color: var(--white) !important;
+      }
+    }
+    &.style--two {
+      background-color: #142442;
+      border-color: #585c75;
+      color: #a5afc1;
+      &:after {
+        display: none;
+      }
+      &:hover {
+        color: var(--c1);
+        border-color: var(--c1);
+      }
+    }
+    &:hover {
+      border-color: transparent;
+      &:after {
+        width: 100%;
+        opacity: 1;
+      }
+    }
+  }
+  &-sm {
+    font-size: 13px;
+    padding: 10px 18px;
+  }
+  &-follow {
+    font-size: 12px;
+    padding: 9px 18px;
+    display: flex;
+    &.followed {
+      background: var(--body-bg);
+    }
+  }
+
+  //btn circle
+  &-circle {
+    width: 35px;
+    min-width: 35px;
+    height: 35px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    background-color: var(--white);
+    @extend %radius;
+    color: var(--c1);
+    &.style {
+      &--two {
+        border: 1px solid #585c75;
+        background-color: #142442;
+      }
+      &--three {
+        background-color: var(--body-bg);
+      }
+    }
+  }
+}

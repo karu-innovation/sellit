@@ -1,0 +1,51 @@
+/* ************************
+   03.4: 404
+   ********************* */
+
+.content-404 {
+  margin-bottom: 150px;
+  display: flex;
+  @include mobileLg {
+    flex-direction: column;
+    margin-bottom: 60px;
+  }
+  > div {
+    &:not(:last-child) {
+      border-right: 1px solid rgba(#fff, 0.2);
+      @include mobileLg {
+        border: none;
+      }
+    }
+  }
+  .content-404-left {
+    padding-right: 45px;
+    @include mobileLg {
+      padding: 0;
+      margin-bottom: 30px;
+    }
+    h2 {
+      @extend %white;
+      margin-bottom: 14px;
+    }
+    a {
+      @extend %white;
+      svg {
+        position: relative;
+        top: -3px;
+        margin-right: 5px;
+      }
+    }
+  }
+  .content-404-right {
+    @extend %white;
+    padding-left: 45px;
+    max-width: 370px;
+    @include mobileLg {
+      padding: 0;
+    }
+    h4 {
+      @extend %white;
+      margin-bottom: 10px;
+    }
+  }
+}

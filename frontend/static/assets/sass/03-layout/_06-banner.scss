@@ -1,0 +1,177 @@
+/* ************************
+   03.6: Banner
+   ********************* */
+
+.banner {
+  padding: 260px 0 0px;
+  position: relative;
+  z-index: 1;
+  @include tab {
+    padding-top: 180px;
+  }
+  #particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    top: 0;
+    left: 0;
+  }
+
+  .list-info {
+    margin-bottom: 57px;
+    &.style {
+      &--two {
+        margin-bottom: 30px;
+      }
+    }
+  }
+}
+
+//Banner Content
+.banner-content {
+  h5 {
+    font-size: 16px;
+    @extend %medium;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  h2 {
+    margin-bottom: 5px;
+  }
+  h1 {
+    font-size: 72px;
+    margin-bottom: 42px;
+    letter-spacing: -3px;
+    @include mobileSm {
+      font-size: 48px;
+    }
+  }
+
+  &.text-white {
+    h1,
+    h5 {
+      color: var(--white);
+    }
+  }
+}
+
+//Banner IMG
+.banner-img {
+  position: relative;
+  > img {
+    @include customMin(992) {
+      max-width: inherit;
+    }
+  }
+}
+.banner-img-content {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+  padding: 55px 0px 60px 55px;
+  width: 100%;
+
+  h2 {
+    color: var(--white);
+    margin-bottom: 23px;
+  }
+  @include mobileLg {
+    position: relative;
+    padding: 20px 15px 25px 15px;
+    h2 {
+      margin-bottom: 16px;
+      font-size: 24px;
+    }
+  }
+
+  &:after {
+    width: 100%;
+    height: min-content;
+    position: absolute;
+    left: 0;
+    top: 0;
+    content: "";
+    @extend %gradient;
+    height: 100%;
+    z-index: -1;
+    @include customMin(992) {
+      width: 149%;
+    }
+  }
+  .countdown {
+    font-size: 18px;
+  }
+}
+
+//Banner Styles
+.banner {
+  &.style {
+    &--two {
+      padding: 120px 0 0px;
+      @include tab {
+        padding-top: 150px;
+      }
+      .banner-content {
+        max-width: 560px;
+        @include customMin(992) {
+          position: absolute;
+          z-index: 1;
+          top: 50%;
+          transform: translateY(-50%);
+          margin-top: 100px;
+        }
+      }
+    }
+    &--three {
+      padding: 190px 0 90px;
+      background-position: center;
+      @include tab {
+        padding-top: 150px;
+      }
+      .banner-content {
+        h1 {
+          font-size: 70px;
+          margin-bottom: 0;
+          line-height: calc(82 / 70);
+          margin-bottom: 14px;
+          @include mobileSm {
+            font-size: 48px;
+          }
+        }
+      }
+      .list-info {
+        margin-bottom: 42px;
+      }
+
+      .banner-img {
+        transition: all 0.1 linear;
+        @include tab {
+          display: inline-block;
+        }
+        .vdo_btn {
+          position: absolute;
+          top: 100px;
+          left: 0;
+          @include mobileSm {
+            top: 50px;
+          }
+        }
+      }
+      .banner-small-img {
+        position: absolute;
+        @extend %radius;
+        box-shadow: 0 0 99px rgba(#000000, 0.15);
+        right: 0;
+        bottom: 70px;
+        @include medium {
+          right: -100px;
+        }
+        img {
+          @extend %radius;
+        }
+      }
+    }
+  }
+}

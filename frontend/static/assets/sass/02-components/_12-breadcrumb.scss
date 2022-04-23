@@ -1,0 +1,75 @@
+/* ************************
+   02.12: Breadcrumb
+   ********************* */
+
+    .page-title-wrap {
+        min-height: 420px;
+        display: flex;
+        align-items: center;
+        @include mobileSm {
+            background-position: right;
+            min-height: initial;
+        }
+
+        .breadcrumb-nav {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            padding: 22px 60px;
+            &:before, &:after {
+                width: 1000%;
+                height: 72px;
+                left: -12px;
+                bottom: 0;
+                border: 1px solid var(--white);
+                border-right: 0px;
+                border-bottom: 0px;
+                position: absolute;
+                content: "";
+                border-radius: 60px 0 0 0;
+            }
+            &:after {
+                @extend %c1-bg;
+                border: none;
+                height: 100%;
+                left: 0;
+                border-radius: 50px 0 0 0;
+            }
+            li {
+                position: relative;
+                z-index: 1;
+                line-height: 1;
+                @extend %white;
+                a {
+                    @extend %white;
+                }
+                &:not(:last-child) {
+                    padding-right: 10px;
+                    margin-right: 10px;
+                    &:after {
+                        right: -4px;
+                        position: absolute;
+                        content: '-';
+                        top: 0;
+                        width: 5px;
+                        height: 2px;
+                        @extend %white;
+                    }
+                }
+            }
+        }
+    }
+
+    .page-title {
+        padding: 233px 0 173px;
+        @include tab {
+            padding-top: 180px;
+        }
+        h2 {
+            font-size: 66px;
+            max-width: 1100px;
+            @include mobileSm {
+                font-size: 48px;
+            }
+        }
+    }

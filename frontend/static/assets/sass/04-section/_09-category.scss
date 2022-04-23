@@ -1,0 +1,36 @@
+/* ************************
+   04.9: Category
+   ********************* */
+
+.category-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  background-color: #142442;
+  position: relative;
+
+  .content {
+    position: absolute;
+    box-shadow: 0 0 99px rgba(#000000, 0.1);
+
+    h5 {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+      background-color: rgba(#142442, 0.9);
+      height: 60px;
+      width: 100%;
+      color: var(--white);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  &.style {
+    &--two {
+      background-color: #efefef;
+    }
+  }
+}

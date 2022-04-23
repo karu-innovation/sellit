@@ -1,0 +1,55 @@
+/* ************************
+   02.8: Titles
+   ********************* */
+
+.section-title {
+  position: relative;
+  margin-top: -10px;
+  margin-bottom: 60px;
+  @include tab {
+    margin-bottom: 40px;
+  }
+  &.mb-35 {
+    margin-bottom: 35px;
+  }
+  h2 {
+    font-size: 60px;
+    margin-bottom: 11px;
+  }
+  &.text-white {
+    * {
+      color: var(--white);
+    }
+  }
+
+  @include mobileLg {
+    br {
+      display: none;
+    }
+  }
+  h2 {
+    @include mobileSm {
+      font-size: 36px;
+    }
+  }
+
+  &.style {
+    &--two {
+      margin-top: -5px;
+      margin-bottom: 54px;
+      h2 {
+        font-size: 36px;
+        display: flex;
+        align-items: center;
+        margin-bottom: 0;
+      }
+
+      .title-select {
+        color: var(--c1);
+        option {
+          color: var(--title-color);
+        }
+      }
+    }
+  }
+}

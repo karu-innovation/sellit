@@ -1,0 +1,36 @@
+/* ************************
+   04.1: Small Sections Css
+   ********************* */
+
+//newsletter-sec
+.newsletter-sec {
+  padding-top: 56px;
+  padding-bottom: 54px;
+  background-color: rgba(#ffffff, 0.05);
+}
+.newsletter-content {
+  h4 {
+    margin-bottom: 8px;
+    @extend %medium;
+  }
+  &.text-white {
+    * {
+      color: var(--white);
+    }
+  }
+}
+
+//Create Page
+.create-box {
+  background-color: #142442;
+  border-radius: 10px;
+  padding: 45px 15px 40px;
+  text-align: center;
+  margin-bottom: 30px;
+  h3 {
+    color: var(--white);
+    margin-top: 20px;
+    font-size: 24px;
+    @extend %medium;
+  }
+}

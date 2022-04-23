@@ -1,0 +1,57 @@
+/*
+	*******************
+	Template name:  Anefty
+	Version:        1.0
+	Author:         Themelooks
+	Author url:     http://themelooks.com
+
+	NOTE:
+	-----
+	Please DO NOT EDIT THIS CSS, you may need to use "custom.css" file for writing your custom css.
+	We may release future updates so it will overwrite this file. it's better and safer to use "custom.css".
+
+    ******** CSS INDEX ********
+    01. Base
+        1.1 Reset 
+        1.2 Spacing
+        1.3 Color
+    02. Components
+        2.1 Helper
+        2.2 Animation
+        2.3 Social List
+        2.4 Inputs
+        2.5 Buttons
+        2.6 Products
+        2.7 Widget
+        2.8 Title
+        2.9 Pagination
+        2.10 BackToTop
+        2.11 Preloader
+        2.12 Breadcrumb
+    03. Layout
+        3.1 Header
+        3.2 Footer
+        3.3 Blog
+        3.4 404
+        3.5 Coming Soon
+        3.6 Banner
+    04. Section
+        4.1 Small Sections
+        4.2 About
+        4.3 Auction
+        4.4 Support
+        4.5 Collection
+        4.6 Trending
+        4.7 Sell NFT
+        4.8 Feature
+        4.9 Category
+        4.10 Author
+        4.11 Contact
+    ********************/
+
+// IMPORT ALL DIRECTORY SASS FILE
+@import '00-abstracts/00-abstracts-dir';
+@import '01-base/00-base-dir';
+@import '02-components/00-component-dir';
+@import '03-layout/00-layout-dir';
+@import '04-section/00-section-dir';

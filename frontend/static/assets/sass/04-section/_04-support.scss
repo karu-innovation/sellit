@@ -1,0 +1,28 @@
+/* ************************
+   04.4: Support
+   ********************* */
+
+    .support-img {
+        direction: rtl;
+        img {
+            @include customMin(992) {
+                max-width: initial;
+                margin-top: -120px;
+            }
+        }
+    }
+
+    .quick-contact {
+        padding: 41px 44px 37px;
+        margin-top: -93px;
+        h3 {
+            margin-bottom: 3px;
+        }
+        > a {
+            color: var(--white);
+            font-size: 30px;
+            font-family: var(--title-font);
+            @extend %semi-bold;
+            line-height: 1.2;
+        }
+    }

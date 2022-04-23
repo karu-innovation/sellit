@@ -8,7 +8,7 @@ User = settings.AUTH_USER_MODEL
 class User(AbstractUser):
     is_superuser = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
-    is_customers = models.BooleanField(default=True)
+    is_customer = models.BooleanField(default=True)
     phone_no = models.CharField(max_length=13, blank=True, null=True)
     ver_code = models.CharField(blank=True, null=True, max_length=10)
 

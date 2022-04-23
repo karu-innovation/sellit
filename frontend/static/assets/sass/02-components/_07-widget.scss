@@ -1,0 +1,248 @@
+/* ************************
+   02.7: Widget
+   ********************* */
+
+.widget {
+  &:not(:last-child) {
+    margin-bottom: 40px;
+    &.mb-30 {
+      margin-bottom: 30px;
+    }
+  }
+  .widget-title {
+    margin-bottom: 20px;
+    line-height: 1.2;
+    &.left-border {
+      position: relative;
+      padding-left: 18px;
+      &:after {
+        width: 3px;
+        height: 17px;
+        position: absolute;
+        left: 0;
+        top: 6px;
+        content: "";
+        @extend %white-bg;
+      }
+    }
+  }
+  ul {
+    @extend %list-unstyled;
+  }
+  &.widget_newsletter {
+    .content {
+      p {
+        margin-bottom: 26px;
+      }
+      .tc-text {
+        font-size: 14px;
+        margin-top: 13px;
+        display: block;
+      }
+    }
+  }
+  &.widget_recent_entries {
+    ul {
+      li {
+        &:not(:last-child) {
+          margin-bottom: 13px;
+        }
+        padding-bottom: 3px;
+        display: flex;
+        align-items: center;
+        .post--img {
+          margin-right: 10px;
+          min-width: 70px;
+        }
+        .post--date {
+          display: block;
+          @extend %c1;
+          @extend %title-font;
+          @extend %semi-bold;
+          text-transform: uppercase;
+          font-size: 12px;
+          margin-bottom: 2px;
+          &.c2 {
+            @extend %c2;
+          }
+        }
+        .post--title {
+          @extend %semi-bold;
+          line-height: calc(28 / 18);
+          a {
+            &:hover {
+              @extend %c1;
+            }
+          }
+        }
+      }
+    }
+    &.style--two {
+      ul {
+        li {
+          .post--date {
+            @extend %white;
+          }
+          .post--title {
+            a {
+              &:hover {
+                @extend %white;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &.widget_nav_menu {
+    ul {
+      li {
+        &:not(:last-child) {
+          margin-bottom: 12px;
+        }
+        a {
+          color: var(--white);
+          &:hover {
+            color: var(--c1);
+          }
+        }
+      }
+    }
+    .footer-list-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      ul {
+        flex: 0 0 50%;
+        max-width: 50%;
+      }
+    }
+  }
+  &.widget_about {
+    @extend %gradient;
+    padding: 80px 15px;
+    @include tab {
+      padding: 60px 15px;
+    }
+    @include customMin(1200) {
+      margin: -80px 0 !important;
+    }
+
+    .footer-logo {
+      margin-bottom: 38px;
+    }
+    p {
+      max-width: 330px;
+      margin: 0 auto 36px;
+    }
+    &.style {
+      &--two {
+        background: transparent;
+        padding: 0;
+        @include customMin(1200) {
+          margin: 0 !important;
+        }
+        .footer-logo {
+          margin-bottom: 23px;
+        }
+        p {
+          margin: 0 0 24px;
+        }
+      }
+    }
+  }
+  &.widget_instagram {
+    .instagram-content {
+      display: flex;
+      flex-wrap: wrap;
+      margin: -15px;
+      max-width: 305px;
+      padding-left: 5px;
+      > a {
+        display: block;
+        padding: 10px;
+        img {
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+  &.widget_search {
+    .search-form {
+      .form-group {
+        max-width: inherit;
+      }
+    }
+  }
+  &.widget_categories {
+    .widget-title {
+      color: var(--white);
+    }
+    ul {
+      li {
+        display: flex;
+        justify-content: space-between;
+        color: var(--white);
+        &:not(:last-child) {
+          margin-bottom: 12px;
+          padding-bottom: 12px;
+          border-bottom: 1px solid #142442;
+        }
+        a {
+          position: relative;
+          color: var(--white);
+
+          &:hover {
+            color: var(--c1);
+          }
+        }
+      }
+    }
+  }
+  &.widget_tag_cloud {
+    .widget-title {
+      color: var(--white);
+    }
+    .tagcloud {
+      margin-right: -5px;
+      margin-bottom: -5px;
+      display: flex;
+      flex-wrap: wrap;
+      a {
+        background-color: #142442;
+        display: inline-block;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        color: var(--white);
+        padding: 7px 15px;
+        border-radius: 3px;
+        &:hover {
+          color: var(--c1);
+        }
+      }
+    }
+  }
+
+  &.widget-profile {
+    padding-bottom: 21px;
+    @include mobileSm {
+      padding-bottom: 6px;
+    }
+    .user-avatar {
+      width: 135px;
+      height: 135px;
+      border-width: 8px;
+      img {
+        width: 119px;
+        height: 119px;
+        min-width: 119px;
+      }
+    }
+  }
+  &.widget-bio {
+    color: var(--white);
+    h3 {
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+  }
+}

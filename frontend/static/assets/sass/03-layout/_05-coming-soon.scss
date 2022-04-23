@@ -1,0 +1,77 @@
+/* ************************
+   03.5: Coming Soon
+   ********************* */
+
+.coming-soon-content {
+  .coming-soon-img {
+    margin-bottom: 45px;
+  }
+}
+
+.countdown {
+  &.style {
+    &--two {
+      justify-content: center;
+      margin-bottom: 54px;
+      @extend %white;
+      li {
+        text-align: center;
+        &:not(:last-child) {
+          margin-right: 120px;
+          @include tab {
+            margin-right: 60px;
+          }
+          @include mobileMd {
+            margin-right: 30px;
+          }
+        }
+      }
+      h2 {
+        font-size: 3rem;
+        @extend %white;
+        @extend %medium;
+        @include mobileMd {
+          font-size: 2rem;
+        }
+      }
+      p {
+        @include mobileMd {
+          font-size: 0.7rem;
+        }
+      }
+    }
+  }
+}
+
+// .countdown.style_2 {
+//    max-width: 648px;
+//    margin: 34px auto 8px;
+//    @include mobileMd {
+//       display: flex;
+//       flex-wrap: wrap;
+//    }
+//    li {
+//       margin-bottom: 40px;
+//       &.separator {
+//          width: 1px;
+//          height: 30px;
+//          background-color: rgba(255, 255, 255, .5);
+//       }
+//       @include mobileMd {
+//          flex: 1 1 50%;
+//          &.separator {
+//             display: none;
+//          }
+//       }
+//    }
+//    .single-countdown {
+//       h2 {
+//          font-size: 60px;
+//       }
+//       span {
+//          @extend %title-font;
+//          font-size: 18px;
+//          text-transform: uppercase;
+//       }
+//    }
+// }

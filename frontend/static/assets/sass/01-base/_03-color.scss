@@ -1,0 +1,10 @@
+/* ************************
+   01.3: Color
+   ********************* */
+   @include colors(var(--text-color), text-color);
+   @include colors(var(--title-color), title-color);
+   @include colors(var(--border-color), border-color);
+   @include colors(var(--white), white);
+   @include colors(var(--black), black);
+   @include colors(var(--c1), c1);
+   @include colors(var(--c2), c2);

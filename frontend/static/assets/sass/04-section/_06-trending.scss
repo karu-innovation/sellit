@@ -1,0 +1,48 @@
+/* ************************
+   04.6: Trending
+   ********************* */
+
+.trending-profile {
+  display: block;
+  background-color: #071838;
+  color: rgba(#ffffff, 0.66);
+  border-radius: 20px;
+  overflow: hidden;
+
+  .profile-top {
+    background-color: #142442;
+    width: 80%;
+    left: 10%;
+    position: relative;
+    border-radius: 10px;
+    margin-top: -43px;
+    padding: 0 15px 24px;
+    @extend %trans3;
+    transform: translateY(0);
+    h5 {
+      margin-bottom: 8px;
+    }
+    h6 {
+      @extend %regular;
+      color: rgba(#ffffff, 0.66);
+    }
+  }
+  .profile-bottom {
+    padding: 23px 15px 24px;
+  }
+  .user-avatar {
+    margin-top: -15px;
+    top: -20px;
+  }
+  .user-status {
+    width: 20px;
+    height: 20px;
+  }
+
+  &:hover {
+    color: rgba(#ffffff, 0.66);
+    .profile-top {
+      transform: translateY(-5px);
+    }
+  }
+}

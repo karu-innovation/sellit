@@ -1,0 +1,102 @@
+/* ************************
+   04.7: Sell NFTs
+   ********************* */
+
+.selling-process {
+  background-color: #142442;
+  border-radius: 20px;
+  padding: 45px 30px 40px;
+  margin-bottom: 30px;
+
+  .icon {
+    margin-bottom: 27px;
+    img {
+      @extend %trans3;
+    }
+  }
+  .content {
+    h5 {
+      margin-bottom: 14px;
+      line-height: 1.2;
+    }
+  }
+  &.text-white {
+    .content {
+      * {
+        color: var(--white);
+      }
+      p {
+        opacity: 0.66;
+      }
+    }
+  }
+  &:hover {
+    .icon {
+      img {
+        transform: rotate(-3deg);
+      }
+    }
+  }
+}
+
+//selling-process-list
+.selling-process-list {
+  @extend %list-unstyled;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  @include mobileSm {
+    justify-content: space-between;
+  }
+  h5 {
+    text-align: center;
+    color: var(--white);
+    font-weight: 16px;
+    @extend %medium;
+    margin-top: 28px;
+  }
+
+  .selling-sep {
+    margin: 0 0px 80px;
+    @include medium {
+      display: none;
+    }
+  }
+
+  .icon {
+    width: 190px;
+    height: 190px;
+    border-radius: 20px;
+    background-color: #142442;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  li {
+    &:not(.selling-sep) {
+      margin-bottom: 30px;
+    }
+    &:not(:last-child) {
+      margin-right: 29px;
+    }
+    @include mobileSm {
+      margin-right: 0 !important;
+      padding: 0 5px;
+      flex: 0 0 50%;
+      .icon {
+        width: 100%;
+      }
+    }
+  }
+  &.style {
+    &--two {
+      .icon {
+        background-color: var(--white);
+        box-shadow: 0 0 60px rgba(#000, 0.05);
+      }
+      h5 {
+        color: var(--title-color);
+      }
+    }
+  }
+}

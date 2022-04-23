@@ -1,0 +1,33 @@
+/* ************************
+   02.10: Back to Top
+   ********************* */
+   .back-to-top {
+    position: fixed;
+    opacity: 0;
+    visibility: hidden;
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    box-shadow: 0 4px 14px rgba( #000000, .1);
+    font-size: 16px;
+    color: var(--white) !important;
+    border-radius: 50%;
+    display: inline-block;
+    text-align: center;
+    line-height: 35px;
+    bottom: 10%;
+    right: 4%;
+    transform: scale(0);
+    transition: .3s ease-in;
+    @extend %c1-bg;
+    &.show {
+        transform: scale(1);
+        opacity: 1;
+        visibility: visible;
+        z-index: 999;
+    }
+    &:hover {
+        opacity: .6;
+    }
+}
+

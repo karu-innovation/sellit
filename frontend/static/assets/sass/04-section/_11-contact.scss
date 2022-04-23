@@ -1,0 +1,12 @@
+/* ************************
+   04.11: Contact
+   ********************* */
+
+.contact-form {
+  * {
+    @extend %white;
+  }
+  h3 {
+    margin-bottom: 30px;
+  }
+}

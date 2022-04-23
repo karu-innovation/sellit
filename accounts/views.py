@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate, login, logout, get_user_model
 from django.http import HttpResponseRedirect
 from django.core.mail import send_mail
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
-from django.utils.encoding import force_bytes, force_text, DjangoUnicodeDecodeError
+from django.utils.encoding import force_bytes, force_str, DjangoUnicodeDecodeError
 from django.contrib.sites.shortcuts import get_current_site
 from .utils import token_gen
 from django.contrib.auth.tokens import PasswordResetTokenGenerator
@@ -14,7 +14,7 @@ from django.contrib.auth.tokens import PasswordResetTokenGenerator
 User = get_user_model()
 # login
 
-def login(request, *args, **kwargs):
+def LogInView(request, *args, **kwargs):
     next_page = request.GET.get('next')
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -45,13 +45,13 @@ def LogOutView(request, *args, **kwargs):
 
 def RegisterView(request):
     if request.method == 'POST':
-        username = request.POST.get('user_login')
-        email = request.POST.get('user_email')
-        phone = request.POST.get('phone') or None
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        phone = request.POST.get('phone_no') or None
         first_name = request.POST.get('first_name')
         last_name = request.POST.get('last_name')
-        password1 = request.POST.get('pass1')
-        password2 = request.POST.get('pass2')
+        password1 = request.POST.get('password1')
+        password2 = request.POST.get('password2')
         
         if username == "":
             messages.error(request, "Username is required")
@@ -61,20 +61,20 @@ def RegisterView(request):
             messages.error(request, "Password is required")
         if password2 == "":
             messages.error(request, "Repeat Password is required")
-            return redirect('user:register')
+            return redirect('accounts:register')
         
         if User.objects.filter(username=username).exists():
             messages.error(request, "A user with the username exists")
         if User.objects.filter(email=email).exists():
             messages.error(request, "The Email has already been taken")
-            return redirect('user:register')
+            return redirect('accounts:register')
 
         
         if password1 != password2:
             messages.error(request, "Passwords do not match")
         if len(password1)<6:
             messages.error(request,"Password is too short")
-            return redirect('user:register') 
+            return redirect('accounts:register') 
             
                 
         else:
@@ -86,7 +86,7 @@ def RegisterView(request):
             
             uidb64 = urlsafe_base64_encode(force_bytes(user.pk))
             domain = get_current_site(request).domain #gives us the domain
-            link = reverse('user:activate', 
+            link = reverse('accounts:activate', 
                             kwargs={
                                 'uidb64':uidb64, 
                                 'token':token_gen.make_token(user)
@@ -107,14 +107,14 @@ def RegisterView(request):
             mail_body = f"hi {user.username} click the link below to verify your account\n {activate_url}"
             send_mail (mail_subject, mail_body,'noreply@sellit.com',[email], fail_silently=False)
             messages.success(request, "Account created, Check your email to activate your account")
-            return redirect('user:login')
+            return redirect('accounts:login')
             
     return render(request, 'auth/register.html', {})
 
 #verification of your email account
 def VerificationView(request,uidb64, token):
 
-    uidb = force_text(urlsafe_base64_decode(uidb64)) or None
+    uidb = force_str(urlsafe_base64_decode(uidb64)) or None
     user = User.objects.get(pk=uidb) or None
 
         
@@ -122,7 +122,7 @@ def VerificationView(request,uidb64, token):
         user.is_active=True
         user.save()
         messages.info(request, "account activated successfully")  
-        return redirect("user:login")
+        return redirect("accounts:login")
     return render(request,'auth/activation_failed.html')
 
 
@@ -136,7 +136,7 @@ def RequestResetEmail(request):
         if user.exists():
             uidb64 = urlsafe_base64_encode(force_bytes(user[0].pk))
             domain = get_current_site(request).domain #gives us the domain
-            link = reverse('user:reset-password', 
+            link = reverse('accounts:reset-password', 
                             kwargs={
                                 'uidb64':uidb64, 
                                 'token':PasswordResetTokenGenerator().make_token(user[0])
@@ -155,10 +155,10 @@ def RequestResetEmail(request):
             mail_body = f"hi {user[0].username} click the link below to reset your password\n {reset_password_url}"
             send_mail (mail_subject, mail_body,'noreply@sellit.com',[email], fail_silently=False)
             messages.success(request, "Check your Email for the reset link")
-            return redirect('user:login')
+            return redirect('accounts:login')
         else:
             messages.error(request, "Sorry, there is no user with that email")
-            return redirect('user:request-reset-email')
+            return redirect('accounts:request-reset-email')
 
     return render(request, 'auth/reset_email_form.html', {})
 
@@ -196,7 +196,7 @@ def ResetPasswordView(request, uidb64, token):
             user.set_password(password1)
             user.save()
             messages.success(request, "password changed successfully")
-            return redirect('user:login')
+            return redirect('accounts:login')
         except DjangoUnicodeDecodeError as identifier:
             messages.error(request, "oops! something went wrong")
             return render(request, 'auth/reset_password.html', context)
